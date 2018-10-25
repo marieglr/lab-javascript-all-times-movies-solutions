@@ -46,7 +46,6 @@ function dramaMoviesRate(myMoviesArray) {
 
   //check if the drama array is not empty
   if (myDramaArr.length > 0) {
-
     //return the average rate of the filtered array
     return ratesAverage(myDramaArr);
   }
@@ -58,7 +57,7 @@ function orderByDuration(moviesArray) {
     if (a.duration === b.duration) {
       if (a.title > b.title) {
         return 1;
-      }
+      } else return -1;
     }
     return a.duration - b.duration;
   });
@@ -67,10 +66,8 @@ function orderByDuration(moviesArray) {
 
 // How many movies did STEVEN SPIELBERG
 function howManyMovies(aMoviesArrayAgain) {
-
   //check if the movies array is not empty
   if (aMoviesArrayAgain.length > 0) {
-
     //filter the movies array to get only movies that were directed by Spielberg AND are drama movies
     var spielbergMovies = aMoviesArrayAgain.filter(function(movie) {
       return (
@@ -85,12 +82,9 @@ function howManyMovies(aMoviesArrayAgain) {
   }
 }
 
-
-
 // Order by title and print the first 20 titles
 
 function orderAlphabetically(thisArrayIsMadeOfMoviesMyFriend) {
-
   //Get an array with only the movie titles
   var movieTitles = thisArrayIsMadeOfMoviesMyFriend.map(function(oneMovie) {
     return oneMovie.title;
@@ -114,12 +108,9 @@ function orderAlphabetically(thisArrayIsMadeOfMoviesMyFriend) {
 
 // BONUS --------------------Best yearly rate average
 
-
-
 function bestYearAvg(someMovies) {
   //Check if the movies array is not empty
   if (someMovies.length > 0) {
-
     //Creates an object with years as keys and arrays of movies made that year as values
     var moviesGroupedByYearObj = yearGrouper(someMovies);
 
@@ -135,7 +126,7 @@ function bestYearAvg(someMovies) {
     //creates on array with only the years where movies were made
     var yearsArr = Object.keys(moviesGroupedByYearObj);
 
-    //The index of the best year and the index of the best annual rate are the same 
+    //The index of the best year and the index of the best annual rate are the same
     //since these two arrays were originally the keys/values of the same object
     //To find the year that corresponds to the best avg rate,
     // we just need to look into the array of years and select the one with the index we stored
@@ -150,8 +141,7 @@ function bestYearAvg(someMovies) {
   }
 }
 
-
-//HELPER FUNCTIONS : 
+//HELPER FUNCTIONS :
 
 function yearGrouper(moviesArray) {
   var moviesGroupedByYear = {};
@@ -187,7 +177,6 @@ function averagePerYear(moviesArray) {
   return yearAvgRatesArr;
 }
 
-
 function calculateBestAvgRate(moviesArray) {
   var currentBest = 0;
   moviesArray.forEach(rate => {
@@ -197,7 +186,3 @@ function calculateBestAvgRate(moviesArray) {
   });
   return currentBest;
 }
-
-
-
-
